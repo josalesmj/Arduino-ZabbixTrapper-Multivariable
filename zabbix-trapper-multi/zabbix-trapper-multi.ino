@@ -50,7 +50,7 @@ IPAddress zabbix(ZABBIX_IP1, ZABBIX_IP2, ZABBIX_IP3, ZABBIX_IP4);
 
 int zabbixPort = 10051;
 
-int numeroDeVariaveis = 3; //COLOQUE AQUI A QUANTIDADE DE VARIÁVEIS QUE SERÃO ENVIADAS PARA O ZABBIX
+//int numeroDeVariaveis = 3; //COLOQUE AQUI A QUANTIDADE DE VARIÁVEIS QUE SERÃO ENVIADAS PARA O ZABBIX
  
 void zabbix_send_trap(void);
  
@@ -95,7 +95,7 @@ unsigned int payload_len;
 char packet_content[256];
  
 void zabbix_send_trap() {
-    for(int i=0; i<numeroDeVariaveis;i++){
+    for(int i=0; i<sizeof(key)/sizeof(key[0];i++){
       content_len = prepare_content(packet_content, key[i]);
       payload_len = sizeof(content_header) + content_len + sizeof(content_footer);
       if (zbx_client.connect(zabbix, zabbixPort)) {
